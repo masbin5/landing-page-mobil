@@ -4,223 +4,122 @@ import {
   ArrowRight,
   BadgeCheck,
   Banknote,
-  CarFront,
+  BatteryCharging,
   CheckCircle2,
   ChevronRight,
-  Clock3,
-  Gauge,
-  MapPin,
-  Menu,
   MessageCircle,
   ShieldCheck,
   Sparkles,
   Star,
-  Users,
+  Zap,
 } from "lucide-react";
 
-const cars = [
-  {
-    name: "Toyota Fortuner GR Sport",
-    type: "SUV",
-    price: "Rp 726 Juta",
-    installment: "Mulai Rp 12,8 jt / bulan",
-    transmission: "Automatic",
-    fuel: "Diesel",
-    image:
-      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=85",
-  },
-  {
-    name: "Honda CR-V Turbo",
-    type: "SUV",
-    price: "Rp 749 Juta",
-    installment: "Mulai Rp 13,2 jt / bulan",
-    transmission: "Automatic",
-    fuel: "Bensin",
-    image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85",
-  },
-  {
-    name: "Toyota Camry Hybrid",
-    type: "Sedan",
-    price: "Rp 937 Juta",
-    installment: "Mulai Rp 16,5 jt / bulan",
-    transmission: "Automatic",
-    fuel: "Hybrid",
-    image:
-      "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=85",
-  },
-];
+import Footer from "@/components/Footer";
+import MediaImage from "@/components/MediaImage";
+import Navbar from "@/components/Navbar";
+import { cars } from "@/data/cars";
+import { testimonials } from "@/data/testimonials";
 
-const benefits = [
+const whatsapp =
+  "https://wa.me/6281234567890?text=Halo%20saya%20ingin%20konsultasi%20mobil%20BYD";
+
+const features = [
   {
-    icon: BadgeCheck,
-    title: "Unit Berkualitas",
+    icon: BatteryCharging,
+    title: "Teknologi EV Terdepan",
     description:
-      "Pilihan kendaraan terbaik dengan proses pengecekan kondisi dan dokumen yang transparan.",
+      "Pilihan kendaraan listrik dan hybrid BYD untuk mobilitas yang lebih modern dan efisien.",
   },
   {
     icon: Banknote,
     title: "Kredit Fleksibel",
     description:
-      "Pilihan DP dan tenor menyesuaikan kebutuhan dengan proses pengajuan yang praktis.",
+      "Konsultasikan DP, tenor, cicilan, dan program pembiayaan yang sedang berjalan.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Sales Harmoni Auto",
+    description:
+      "Dapatkan bantuan mulai dari pemilihan model sampai proses serah terima kendaraan.",
   },
   {
     icon: ShieldCheck,
-    title: "Transaksi Aman",
+    title: "Proses Praktis",
     description:
-      "Pendampingan dari konsultasi, pemesanan, pembayaran, sampai kendaraan diterima.",
-  },
-  {
-    icon: Clock3,
-    title: "Respon Cepat",
-    description:
-      "Konsultasi langsung dengan sales untuk cek stok, promo, simulasi kredit, dan test drive.",
+      "Booking, test drive, pengajuan kredit, cek dokumen, dan delivery dibantu satu pintu.",
   },
 ];
 
-const testimonials = [
-  {
-    name: "Rizky Pratama",
-    role: "Pembeli Toyota Fortuner",
-    text: "Pelayanannya cepat dan jelas. Dari tanya promo sampai unit dikirim semuanya dibantu dan tidak ribet.",
-  },
-  {
-    name: "Nadia Putri",
-    role: "Pembeli Honda HR-V",
-    text: "Simulasi kreditnya transparan, jadi saya bisa pilih tenor yang paling nyaman untuk kebutuhan bulanan.",
-  },
-  {
-    name: "Andi Saputra",
-    role: "Pembeli Toyota Innova Zenix",
-    text: "Respons sales cepat, penjelasan detail, dan proses test drive sampai delivery sangat profesional.",
-  },
-];
-
-function Logo() {
+export default function HomePage() {
   return (
-    <a href="#" className="flex items-center gap-3">
-      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-neutral-950 text-white shadow-lg shadow-black/10">
-        <CarFront className="h-5 w-5" />
-      </div>
-      <div>
-        <p className="text-sm font-black tracking-tight text-neutral-950">
-          AUTODRIVE
-        </p>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-neutral-400">
-          Premium Auto Sales
-        </p>
-      </div>
-    </a>
-  );
-}
+    <main className="min-h-screen bg-[#f7f9fc] text-slate-950">
+      <Navbar />
 
-export default function CarSalesLandingPage() {
-  return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f7f7f5] text-neutral-950">
-      {/* Navbar */}
-      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
-        <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/70 bg-white/85 px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.06)] backdrop-blur-xl">
-          <Logo />
-
-          <nav className="hidden items-center gap-8 text-sm font-semibold text-neutral-600 lg:flex">
-            <a href="#mobil" className="transition hover:text-neutral-950">
-              Pilihan Mobil
-            </a>
-            <a href="#keunggulan" className="transition hover:text-neutral-950">
-              Keunggulan
-            </a>
-            <a href="#kredit" className="transition hover:text-neutral-950">
-              Kredit
-            </a>
-            <a href="#testimoni" className="transition hover:text-neutral-950">
-              Testimoni
-            </a>
-          </nav>
-
-          <div className="hidden items-center gap-3 sm:flex">
-            <a
-              href="#kontak"
-              className="rounded-xl px-4 py-2.5 text-sm font-bold text-neutral-700 transition hover:bg-neutral-100"
-            >
-              Hubungi Sales
-            </a>
-            <a
-              href="#mobil"
-              className="inline-flex items-center gap-2 rounded-xl bg-neutral-950 px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-neutral-800"
-            >
-              Lihat Mobil
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-
-          <button className="rounded-xl p-2 text-neutral-700 sm:hidden">
-            <Menu className="h-5 w-5" />
-          </button>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section className="relative px-4 pb-12 pt-28 sm:px-6 sm:pt-32 lg:pb-20">
+      <section className="px-4 pb-12 pt-28 sm:px-6 lg:pb-20 lg:pt-32">
         <div className="mx-auto max-w-7xl">
-          <div className="relative min-h-[690px] overflow-hidden rounded-[32px] bg-neutral-950">
-            <img
-              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90"
-              alt="Premium car"
-              className="absolute inset-0 h-full w-full object-cover opacity-65"
+          <div className="relative min-h-[680px] overflow-hidden rounded-[34px] bg-[#0d3c78]">
+            <MediaImage
+              src="/images/hero/hero-byd.jpg"
+              alt="BYD Harmoni Auto"
+              className="absolute inset-0 h-full w-full"
+              fallbackLabel="Hero BYD — nanti taruh hero-byd.jpg"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-            <div className="relative z-10 flex min-h-[690px] flex-col justify-between p-7 sm:p-10 lg:p-14">
-              <div className="max-w-3xl pt-10 lg:pt-16">
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#071c42]/95 via-[#0b2f68]/78 to-[#0b2f68]/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061a3d]/70 via-transparent to-transparent" />
+
+            <div className="relative z-10 flex min-h-[680px] flex-col justify-between p-7 sm:p-10 lg:p-14">
+              <div className="max-w-3xl pt-8 lg:pt-14">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
                   <Sparkles className="h-4 w-4" />
-                  Promo mobil terbaru & konsultasi gratis
+                  BYD & DENZA — Harmoni Auto
                 </div>
 
-                <h1 className="max-w-3xl text-5xl font-black leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-[84px]">
-                  Mobil impian,
-                  <span className="block text-white/55">
-                    proses lebih mudah.
+                <h1 className="max-w-3xl text-5xl font-black leading-[0.98] tracking-[-0.05em] text-white sm:text-6xl lg:text-[82px]">
+                  One lineup.
+                  <span className="block text-white/60">
+                    Endless possibilities.
                   </span>
                 </h1>
 
-                <p className="mt-7 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
-                  Temukan mobil yang sesuai kebutuhan dan budget Anda. Dapatkan
-                  rekomendasi unit, promo terbaik, simulasi kredit, hingga
-                  bantuan proses pembelian dari awal sampai serah terima.
+                <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 sm:text-lg">
+                  Temukan kendaraan BYD dan DENZA yang sesuai kebutuhan Anda.
+                  Cek model, harga, promo, simulasi kredit, test drive, dan
+                  konsultasi langsung bersama sales Harmoni Auto.
                 </p>
 
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                   <a
-                    href="#mobil"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-black text-neutral-950 transition hover:-translate-y-0.5"
+                    href="#lineup"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-black text-[#0d3c78] transition hover:-translate-y-0.5"
                   >
-                    Cari Mobil Sekarang
+                    Lihat Lineup
                     <ArrowRight className="h-4 w-4" />
                   </a>
                   <a
-                    href="#kontak"
-                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/15"
+                    href={whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-sm font-bold text-white backdrop-blur-md"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    Konsultasi via WhatsApp
+                    Konsultasi WhatsApp
                   </a>
                 </div>
               </div>
 
               <div className="mt-12 grid max-w-3xl grid-cols-2 gap-3 lg:grid-cols-4">
                 {[
-                  ["150+", "Unit Pilihan"],
-                  ["98%", "Customer Puas"],
-                  ["15+", "Partner Leasing"],
-                  ["7 Hari", "Support Sales"],
+                  ["7+", "Pilihan Model"],
+                  ["EV & DM", "Teknologi"],
+                  ["Test Drive", "By Appointment"],
+                  ["Fast Response", "Sales Support"],
                 ].map(([value, label]) => (
                   <div
                     key={label}
-                    className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md"
+                    className="rounded-2xl border border-white/12 bg-white/10 p-4 backdrop-blur-md"
                   >
-                    <p className="text-xl font-black text-white">{value}</p>
+                    <p className="text-lg font-black text-white">{value}</p>
                     <p className="mt-1 text-xs font-medium text-white/55">
                       {label}
                     </p>
@@ -232,94 +131,86 @@ export default function CarSalesLandingPage() {
         </div>
       </section>
 
-      {/* Brands */}
-      <section className="px-4 py-8 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.28em] text-neutral-400">
-            Pilihan brand favorit
-          </p>
-          <div className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-6">
-            {["Toyota", "Honda", "Mitsubishi", "Hyundai", "Mazda", "Suzuki"].map(
-              (brand) => (
-                <div
-                  key={brand}
-                  className="flex h-16 items-center justify-center rounded-2xl border border-neutral-200/70 bg-white text-sm font-black text-neutral-500 shadow-sm"
-                >
-                  {brand}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured cars */}
-      <section id="mobil" className="px-4 py-20 sm:px-6 lg:py-28">
+      <section id="lineup" className="px-4 py-20 sm:px-6 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-neutral-400">
-                Featured Cars
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
+                Our Lineup
               </p>
-              <h2 className="max-w-2xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-                Pilihan mobil yang paling banyak dicari.
+              <h2 className="max-w-3xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                Pilih BYD yang paling cocok untuk gaya hidup Anda.
               </h2>
+              <p className="mt-4 max-w-2xl leading-7 text-slate-500">
+                Harga dapat diperbarui kapan saja dari file data agar mudah
+                mengikuti price list terbaru.
+              </p>
             </div>
+
             <a
-              href="#kontak"
-              className="inline-flex items-center gap-2 text-sm font-black text-neutral-950"
+              href={whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-black text-[#0d3c78]"
             >
-              Tanya stok lainnya
+              Tanya stok terbaru
               <ChevronRight className="h-4 w-4" />
             </a>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {cars.map((car) => (
               <article
-                key={car.name}
-                className="group overflow-hidden rounded-[28px] border border-neutral-200/70 bg-white p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                key={car.slug}
+                className="group overflow-hidden rounded-[28px] border border-slate-200/80 bg-white p-3 shadow-[0_10px_35px_rgba(20,43,77,0.06)]"
               >
-                <div className="relative h-72 overflow-hidden rounded-[22px] bg-neutral-100">
-                  <img
-                    src={car.image}
-                    alt={car.name}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-black backdrop-blur">
-                    {car.type}
-                  </div>
-                </div>
+                <MediaImage
+                  src={car.image}
+                  alt={car.name}
+                  fallbackLabel={`${car.name} — ${car.slug}.jpg`}
+                  className="h-72 rounded-[22px]"
+                />
 
                 <div className="p-4 pb-3 pt-5">
-                  <h3 className="text-xl font-black tracking-tight">
-                    {car.name}
-                  </h3>
-
-                  <div className="mt-4 flex gap-2 text-xs font-semibold text-neutral-500">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-neutral-100 px-3 py-2">
-                      <Gauge className="h-3.5 w-3.5" />
-                      {car.transmission}
-                    </span>
-                    <span className="rounded-full bg-neutral-100 px-3 py-2">
-                      {car.fuel}
-                    </span>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#4777a9]">
+                        {car.brand} · {car.category}
+                      </p>
+                      <h3 className="mt-1 text-2xl font-black tracking-tight">
+                        {car.name}
+                      </h3>
+                    </div>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#edf4fb] text-[#0d3c78]">
+                      <Zap className="h-4 w-4" />
+                    </div>
                   </div>
 
-                  <div className="mt-6 flex items-end justify-between gap-4 border-t border-neutral-100 pt-5">
+                  <p className="mt-4 text-sm leading-6 text-slate-500">
+                    {car.description}
+                  </p>
+
+                  <p className="mt-4 text-xs font-bold text-[#4777a9]">
+                    {car.range}
+                  </p>
+
+                  <div className="mt-6 flex items-end justify-between gap-4 border-t border-slate-100 pt-5">
                     <div>
-                      <p className="text-xs font-semibold text-neutral-400">
-                        Harga mulai
+                      <p className="text-xs font-semibold text-slate-400">
+                        Harga
                       </p>
-                      <p className="mt-1 text-lg font-black">{car.price}</p>
-                      <p className="mt-1 text-xs font-medium text-neutral-500">
-                        {car.installment}
+                      <p className="mt-1 text-lg font-black text-[#0d3c78]">
+                        {car.price}
                       </p>
                     </div>
 
                     <a
-                      href="#kontak"
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-neutral-950 text-white transition group-hover:translate-x-1"
+                      href={`https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20dengan%20${encodeURIComponent(
+                        car.name
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#0d3c78] text-white transition group-hover:translate-x-1"
                     >
                       <ArrowRight className="h-4 w-4" />
                     </a>
@@ -331,35 +222,33 @@ export default function CarSalesLandingPage() {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section id="keunggulan" className="px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-7xl rounded-[32px] bg-white p-6 shadow-[0_10px_40px_rgba(0,0,0,0.04)] sm:p-10 lg:p-14">
+      <section className="px-4 py-12 sm:px-6">
+        <div className="mx-auto max-w-7xl rounded-[32px] bg-white p-6 shadow-[0_12px_40px_rgba(20,43,77,0.05)] sm:p-10 lg:p-14">
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-neutral-400">
-                Kenapa pilih kami
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
+                Why Harmoni Auto
               </p>
               <h2 className="text-4xl font-black tracking-[-0.04em]">
-                Beli mobil tanpa dibuat ribet.
+                Lebih mudah dari konsultasi sampai delivery.
               </h2>
-              <p className="mt-5 max-w-md leading-7 text-neutral-500">
-                Satu sales untuk membantu seluruh proses, dari cari unit,
-                hitung kredit, pengajuan dokumen, sampai kendaraan siap Anda
-                bawa pulang.
+              <p className="mt-5 max-w-md leading-7 text-slate-500">
+                Semua proses dibuat ringkas supaya Anda bisa fokus memilih
+                kendaraan yang paling sesuai dengan kebutuhan dan budget.
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {benefits.map(({ icon: Icon, title, description }) => (
+              {features.map(({ icon: Icon, title, description }) => (
                 <div
                   key={title}
-                  className="rounded-2xl border border-neutral-100 bg-[#fafaf8] p-5"
+                  className="rounded-2xl border border-slate-100 bg-[#f8fbff] p-5"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-950 text-white">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0d3c78] text-white">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 text-lg font-black">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-500">
+                  <p className="mt-2 text-sm leading-6 text-slate-500">
                     {description}
                   </p>
                 </div>
@@ -369,134 +258,196 @@ export default function CarSalesLandingPage() {
         </div>
       </section>
 
-      {/* Financing */}
-      <section id="kredit" className="px-4 py-20 sm:px-6 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
-          <div className="rounded-[32px] bg-neutral-950 p-7 text-white sm:p-10 lg:p-12">
-            <div className="inline-flex rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white/70">
-              Simulasi Kredit
+      <section id="promo" className="px-4 py-20 sm:px-6 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[1fr_0.92fr]">
+          <div className="rounded-[32px] bg-[#0d3c78] p-8 text-white sm:p-10 lg:p-12">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-white/75">
+              <Zap className="h-4 w-4" />
+              Current Promotion
             </div>
+
             <h2 className="mt-6 max-w-xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-              Atur DP dan cicilan sesuai kemampuan Anda.
+              Cek promo dan simulasi kredit terbaru.
             </h2>
-            <p className="mt-5 max-w-xl leading-7 text-white/55">
-              Kami bantu bandingkan skema pembiayaan dari beberapa partner
-              leasing agar Anda mendapat pilihan yang lebih sesuai.
+
+            <p className="mt-5 max-w-xl leading-7 text-white/65">
+              Konsultasikan tipe kendaraan, rencana DP, tenor, dan budget
+              bulanan. Sales akan membantu membuat simulasi yang sesuai.
             </p>
 
             <div className="mt-8 space-y-3">
               {[
-                "Pilihan tenor hingga 60 bulan",
-                "DP fleksibel sesuai program berjalan",
-                "Bantuan pengajuan dan pengecekan dokumen",
+                "Informasi harga OTR terbaru",
+                "Simulasi DP & cicilan",
+                "Jadwal test drive",
+                "Cek stok dan estimasi delivery",
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-3 text-sm font-semibold text-white/80"
+                  className="flex items-center gap-3 text-sm font-semibold text-white/82"
                 >
-                  <CheckCircle2 className="h-5 w-5 text-white" />
+                  <CheckCircle2 className="h-5 w-5" />
                   {item}
                 </div>
               ))}
             </div>
 
             <a
-              href="#kontak"
-              className="mt-9 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-black text-neutral-950"
+              href={whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-9 inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-black text-[#0d3c78]"
             >
-              Minta Simulasi Kredit
+              Tanya Promo
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
 
-          <div className="relative min-h-[520px] overflow-hidden rounded-[32px]">
-            <img
-              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=90"
-              alt="Sports car"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-8 text-white sm:p-10">
-              <div className="flex items-center gap-2 text-sm font-bold text-white/70">
-                <MapPin className="h-4 w-4" />
-                Jabodetabek & sekitarnya
-              </div>
-              <p className="mt-3 max-w-md text-2xl font-black">
-                Bisa konsultasi online atau jadwalkan test drive langsung.
+          <MediaImage
+            src="/images/promo/promo-lineup.jpg"
+            alt="Promo BYD Harmoni Auto"
+            fallbackLabel="Poster promo — promo-lineup.jpg"
+            className="min-h-[520px] rounded-[32px]"
+          />
+        </div>
+      </section>
+
+      <section id="sales" className="px-4 py-16 sm:px-6 lg:py-24">
+        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-[32px] bg-white shadow-[0_12px_45px_rgba(20,43,77,0.06)] lg:grid-cols-2">
+          <MediaImage
+            src="/images/sales/sales-profile.jpg"
+            alt="Sales BYD Harmoni Auto"
+            fallbackLabel="Foto sales — sales-profile.jpg"
+            className="min-h-[520px]"
+          />
+
+          <div className="flex items-center p-8 sm:p-10 lg:p-14">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
+                Your BYD Consultant
               </p>
+              <h2 className="mt-3 text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                Konsultasi langsung dengan sales Harmoni Auto.
+              </h2>
+              <p className="mt-5 max-w-xl leading-7 text-slate-500">
+                Saya siap membantu untuk informasi model, harga, promo,
+                simulasi kredit, trade-in, test drive, dan proses pemesanan unit
+                BYD maupun DENZA.
+              </p>
+
+              <div className="mt-8 space-y-3">
+                {[
+                  "Fast response via WhatsApp",
+                  "Konsultasi tanpa biaya",
+                  "Bisa bantu booking test drive",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 text-sm font-semibold"
+                  >
+                    <CheckCircle2 className="h-5 w-5 text-[#0d3c78]" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-9 inline-flex items-center gap-2 rounded-2xl bg-[#0d3c78] px-6 py-4 text-sm font-black text-white"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chat Sales
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimoni" className="px-4 py-16 sm:px-6 lg:py-24">
+      <section className="px-4 py-16 sm:px-6 lg:py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-neutral-400">
-              Customer Stories
-            </p>
-            <h2 className="mx-auto mt-3 max-w-2xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-              Dipercaya untuk membantu proses beli mobil.
-            </h2>
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
+                Customer Stories
+              </p>
+              <h2 className="mt-3 max-w-2xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                Apa kata mereka setelah memilih BYD.
+              </h2>
+            </div>
+
+            <a
+              href="/testimoni"
+              className="inline-flex items-center gap-2 text-sm font-black text-[#0d3c78]"
+            >
+              Lihat semua testimoni
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {testimonials.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-[26px] border border-neutral-200/70 bg-white p-6 shadow-sm"
+            {testimonials.slice(0, 3).map((item) => (
+              <article
+                key={item.image}
+                className="overflow-hidden rounded-[26px] border border-slate-200/80 bg-white shadow-sm"
               >
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star
-                      key={index}
-                      className="h-4 w-4 fill-neutral-950 text-neutral-950"
-                    />
-                  ))}
-                </div>
-                <p className="mt-5 text-[15px] leading-7 text-neutral-600">
-                  “{item.text}”
-                </p>
-                <div className="mt-7 flex items-center gap-3 border-t border-neutral-100 pt-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100">
-                    <Users className="h-4 w-4 text-neutral-500" />
+                <MediaImage
+                  src={item.image}
+                  alt={item.name}
+                  fallbackLabel={item.image.split("/").pop()}
+                  className="h-72"
+                />
+
+                <div className="p-6">
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star
+                        key={index}
+                        className="h-4 w-4 fill-[#0d3c78] text-[#0d3c78]"
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-sm font-black">{item.name}</p>
-                    <p className="text-xs text-neutral-400">{item.role}</p>
+
+                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                    “{item.quote}”
+                  </p>
+
+                  <div className="mt-5 border-t border-slate-100 pt-4">
+                    <p className="font-black">{item.name}</p>
+                    <p className="mt-1 text-xs text-slate-400">
+                      Customer {item.vehicle} dari {item.area}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="kontak" className="px-4 pb-8 pt-14 sm:px-6">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-[#d7ff57] p-8 sm:p-12 lg:p-16">
+      <section className="px-4 pb-8 pt-12 sm:px-6">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-[#dfeeff] p-8 sm:p-12 lg:p-16">
           <div className="grid items-end gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-black/8 px-4 py-2 text-sm font-bold">
-                <MessageCircle className="h-4 w-4" />
-                Konsultasi gratis
-              </div>
-              <h2 className="mt-6 max-w-3xl text-4xl font-black tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                Sudah punya mobil incaran? Tanya promo terbaik hari ini.
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
+                Ready to drive?
+              </p>
+              <h2 className="mt-4 max-w-3xl text-4xl font-black tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+                Sudah punya BYD incaran? Tanya promo terbaik hari ini.
               </h2>
             </div>
 
             <div className="lg:text-right">
-              <p className="mb-5 text-sm font-semibold leading-6 text-neutral-700 lg:ml-auto lg:max-w-sm">
+              <p className="mb-5 text-sm font-semibold leading-6 text-slate-600 lg:ml-auto lg:max-w-sm">
                 Kirim tipe mobil, budget, dan rencana DP. Sales akan bantu cek
                 stok dan buatkan simulasi pembelian.
               </p>
               <a
-                href="https://wa.me/6281234567890"
+                href={whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl bg-neutral-950 px-6 py-4 text-sm font-black text-white transition hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-2xl bg-[#0d3c78] px-6 py-4 text-sm font-black text-white"
               >
                 Chat WhatsApp Sekarang
                 <ArrowRight className="h-4 w-4" />
@@ -506,15 +457,17 @@ export default function CarSalesLandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-4 py-10 sm:px-6">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 border-t border-neutral-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <Logo />
-          <p className="text-xs font-medium text-neutral-400">
-            © 2026 AutoDrive. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
+
+      <a
+        href={whatsapp}
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#0d3c78] text-white shadow-[0_12px_30px_rgba(13,60,120,0.35)] transition hover:-translate-y-1"
+        aria-label="Chat WhatsApp"
+      >
+        <MessageCircle className="h-6 w-6" />
+      </a>
     </main>
   );
 }
