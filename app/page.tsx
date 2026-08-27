@@ -140,6 +140,12 @@ export default function HomePage() {
       {/* HERO */}
       <section className="px-4 pb-12 pt-28 sm:px-6 lg:pb-20 lg:pt-32">
         <div className="mx-auto max-w-7xl">
+          {/* BYD HARMONY AUTO LOGO */}
+<img
+  src="/images/hero/harmony-auto.png"
+  alt="BYD Harmony Auto"
+  className="mb-8 h-auto w-[260px] object-contain sm:w-[320px] lg:w-[380px]"
+/>
           <div className="relative min-h-[680px] overflow-hidden rounded-[34px] bg-[#0d3c78]">
             <img
               src="/images/hero/hero-byd.jpg"
@@ -156,7 +162,7 @@ export default function HomePage() {
                   <Sparkles className="h-4 w-4" />
                   BYD & DENZA — Harmoni Palmerah
                 </div>
-
+                  
                 <h1 className="max-w-3xl text-5xl font-black leading-[0.98] tracking-[-0.05em] text-white sm:text-6xl lg:text-[82px]">
                   One lineup.
 
@@ -479,7 +485,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-
+              
           <div className="flex items-center p-8 sm:p-10 lg:p-14">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
@@ -500,7 +506,59 @@ export default function HomePage() {
                   Palmerah
                 </p>
               </div>
+                {/* SOCIAL MEDIA RARA */}
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a
+                    href="https://www.tiktok.com/@rara.bydpalmerah?_r=1&_t=ZS-99Dx3SJI3NI"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+                  >
+                    <svg
+                      width="17"
+                      height="17"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-3.77V2h-3.486v13.672a2.896 2.896 0 1 1-2-2.756V9.358a6.37 6.37 0 1 0 5.486 6.314V8.738a8.256 8.256 0 0 0 4.84 1.55V6.817a4.85 4.85 0 0 1-1.07-.131Z" />
+                    </svg>
 
+                    @rara.bydpalmerah
+                  </a>
+
+                  <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="17"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect
+                        width="20"
+                        height="20"
+                        x="2"
+                        y="2"
+                        rx="5"
+                        ry="5"
+                      />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line
+                        x1="17.5"
+                        x2="17.51"
+                        y1="6.5"
+                        y2="6.5"
+                      />
+                    </svg>
+
+                    @rara.chantik
+                  </div>
+                </div>
               <p className="mt-6 max-w-xl leading-7 text-slate-500">
                 Siap membantu Anda untuk informasi
                 model BYD dan DENZA, harga terbaru,
