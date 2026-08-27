@@ -8,6 +8,7 @@ type Props = {
   alt: string;
   className?: string;
   fallbackLabel?: string;
+  fit?: "cover" | "contain";
 };
 
 export default function MediaImage({
@@ -15,16 +16,21 @@ export default function MediaImage({
   alt,
   className = "",
   fallbackLabel = "Foto akan ditambahkan",
+  fit = "cover",
 }: Props) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className={`relative overflow-hidden bg-gradient-to-br from-[#eef4fb] via-white to-[#d9e8f8] ${className}`}>
+    <div
+      className={`relative overflow-hidden bg-gradient-to-br from-[#eef4fb] via-white to-[#d9e8f8] ${className}`}
+    >
       {!failed && (
         <img
           src={src}
           alt={alt}
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full ${
+            fit === "contain" ? "object-contain" : "object-cover"
+          }`}
           onError={() => setFailed(true)}
         />
       )}
@@ -34,6 +40,7 @@ export default function MediaImage({
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0d3c78] text-white shadow-lg">
             <ImageIcon className="h-5 w-5" />
           </div>
+
           <p className="max-w-[220px] text-sm font-bold text-[#31567e]">
             {fallbackLabel}
           </p>

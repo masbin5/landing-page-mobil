@@ -4,7 +4,7 @@ import { Menu, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 
 const whatsapp =
-  "https://wa.me/6281234567890?text=Halo%20saya%20ingin%20konsultasi%20mobil%20BYD";
+  "https://wa.me/6281934703372?text=Halo%20saya%20ingin%20konsultasi%20mobil%20BYD";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,6 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
       <div className="mx-auto max-w-7xl rounded-2xl border border-white/70 bg-white/90 shadow-[0_10px_40px_rgba(16,52,91,0.08)] backdrop-blur-xl">
         <div className="flex items-center justify-between px-5 py-3">
-          
           {/* LOGO */}
           <a href="/" className="flex items-center gap-3">
             <img
@@ -43,7 +42,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="/#lineup"
+              href="/model"
               className="transition hover:text-[#0d3c78]"
             >
               Model Kendaraan
@@ -101,7 +100,7 @@ export default function Navbar() {
               </a>
 
               <a
-                href="/#lineup"
+                href="/model"
                 onClick={() => setOpen(false)}
               >
                 Model Kendaraan

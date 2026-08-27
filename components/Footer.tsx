@@ -69,7 +69,7 @@ export default function Footer() {
 
             {/* WHATSAPP */}
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6281934703372"
               target="_blank"
               rel="noreferrer"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
