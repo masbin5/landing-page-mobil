@@ -11,7 +11,7 @@ export const testimonials: Testimonial[] = [
     image: "/images/testimoni/testimoni-001.png",
     name: "Customer BYD",
     area: "Jakarta",
-    vehicle: "BYD ATTO 3",
+    vehicle: "BYD ATTO 3 Advance Plus",
     quote:
       "Pelayanan cepat, jelas, dan dibantu mulai dari konsultasi sampai serah terima unit.",
   },
@@ -59,7 +59,7 @@ export const testimonials: Testimonial[] = [
     image: "/images/testimoni/testimoni-007.JPG",
     name: "Customer BYD",
     area: "Tangerang",
-    vehicle: "BYD ATTO 3",
+    vehicle: "BYD ATTO 3 Advance Plus",
     quote:
       "Proses pembelian berjalan lancar dan sales selalu memberikan update dengan baik.",
   },

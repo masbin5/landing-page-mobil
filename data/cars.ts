@@ -120,7 +120,7 @@ export const cars: Car[] = [
   {
     slug: "atto-3",
     brand: "BYD",
-    name: "ATTO 3",
+    name: "ATTO 3 Advance Plus",
     category: "SUV EV",
     price: "Rp415.000.000",
     image: "/images/cars/atto-3.jpg",
@@ -130,7 +130,7 @@ export const cars: Car[] = [
       "SUV listrik modern dengan performa responsif, kabin nyaman, dan teknologi pintar.",
 
     longDescription:
-      "BYD ATTO 3 merupakan SUV listrik berbasis e-Platform 3.0 dengan Blade Battery. Model ini menggabungkan performa, teknologi, kenyamanan kabin, dan karakter SUV untuk penggunaan sehari-hari.",
+      "BYD ATTO 3 Advance Plus merupakan SUV listrik berbasis e-Platform 3.0 dengan Blade Battery. Model ini menggabungkan performa, teknologi, kenyamanan kabin, dan karakter SUV untuk penggunaan sehari-hari.",
 
     specs: [
       {
@@ -185,7 +185,7 @@ export const cars: Car[] = [
 
     variants: [
       {
-        name: "Advanced Plus",
+        name: "Advance Plus",
         price: "Rp415.000.000",
       },
     ],
@@ -204,9 +204,9 @@ export const cars: Car[] = [
   },
 
   {
-    slug: "m6",
+    slug: "m6-ev",
     brand: "BYD",
-    name: "M6",
+    name: "M6 EV",
     category: "Electric MPV",
     price: "Mulai Rp395.000.000",
     image: "/images/cars/m6.jpg",
@@ -275,16 +275,16 @@ export const cars: Car[] = [
 
     variants: [
       {
-        name: "Standard 2026 - 7 Seater",
+        name: "Standard",
         price: "Rp395.000.000",
       },
       {
-        name: "Superior - 7 Seater",
-        price: "Rp423.000.000",
+        name: "Superior",
+        price: "Rp435.000.000",
       },
       {
-        name: "Superior Captain - 6 Seater",
-        price: "Rp433.000.000",
+        name: "Superior Capt. Seat",
+        price: "Rp445.000.000",
       },
     ],
 
@@ -408,7 +408,7 @@ export const cars: Car[] = [
     brand: "BYD",
     name: "SEAL",
     category: "Electric Sport Sedan",
-    price: "Mulai Rp639.000.000",
+    price: "Rp869.000.000",
     image: "/images/cars/seal.jpg",
     range: "Hingga 650 km NEDC",
 
@@ -416,12 +416,12 @@ export const cars: Car[] = [
       "Sedan listrik premium dengan performa tinggi, desain aerodinamis, dan teknologi CTB.",
 
     longDescription:
-      "BYD SEAL merupakan sedan listrik berbasis e-Platform 3.0 dengan teknologi Cell-to-Body. Varian Performance menawarkan sistem AWD dengan akselerasi sangat cepat, sementara Premium menonjolkan jarak tempuh hingga 650 km NEDC.",
+      "BYD SEAL merupakan sedan listrik berbasis e-Platform 3.0 dengan teknologi Cell-to-Body. Varian Premium menawarkan sistem RWD dengan jarak tempuh hingga 650 km NEDC.",
 
     specs: [
       {
         label: "Penggerak",
-        value: "RWD / AWD",
+        value: "RWD",
       },
       {
         label: "Daya Premium",
@@ -430,14 +430,6 @@ export const cars: Car[] = [
       {
         label: "Torsi Premium",
         value: "360 Nm",
-      },
-      {
-        label: "Daya Performance",
-        value: "390 kW",
-      },
-      {
-        label: "Torsi Performance",
-        value: "670 Nm",
       },
       {
         label: "Baterai",
@@ -452,8 +444,8 @@ export const cars: Car[] = [
         value: "0–100 km/jam 5,9 detik",
       },
       {
-        label: "Akselerasi Performance",
-        value: "0–100 km/jam 3,8 detik",
+        label: "Kapasitas",
+        value: "5 Penumpang",
       },
       {
         label: "Dimensi",
@@ -471,12 +463,8 @@ export const cars: Car[] = [
 
     variants: [
       {
-        name: "Premium Extended Range",
-        price: "Rp639.000.000",
-      },
-      {
-        name: "Performance AWD",
-        price: "Rp750.000.000",
+        name: "Premium",
+        price: "Rp869.000.000",
       },
     ],
 
@@ -484,7 +472,6 @@ export const cars: Car[] = [
       "Cell-to-Body Technology",
       "e-Platform 3.0",
       "Blade Battery",
-      "DiSus-C pada Performance",
       "15,6-inch Rotating Touchscreen",
       "Head-up Display",
       "Panoramic Glass Roof",
@@ -494,60 +481,48 @@ export const cars: Car[] = [
   },
 
   {
-    slug: "sealion-7",
+    slug: "sealion-extended",
     brand: "BYD",
-    name: "SEALION 7",
+    name: "SEALION Extended",
     category: "Premium Electric SUV",
-    price: "Mulai Rp629.000.000",
+    price: "Rp879.000.000",
     image: "/images/cars/sealion-7.jpg",
     range: "Hingga 567 km NEDC",
 
     description:
-      "SUV listrik premium dengan desain coupe, performa tinggi, dan teknologi Cell-to-Body.",
+      "SUV listrik premium dengan desain modern, kabin nyaman, dan teknologi elektrifikasi BYD.",
 
     longDescription:
-      "BYD SEALION 7 memadukan karakter SUV dengan desain coupe dan performa EV tinggi. Tersedia dalam konfigurasi RWD Premium dan AWD Performance dengan baterai Blade 82,56 kWh.",
+      "BYD SEALION Extended merupakan SUV listrik premium dengan karakter modern dan teknologi elektrifikasi BYD. Untuk sementara, model ini menggunakan sistem penggerak RWD.",
 
     specs: [
       {
         label: "Penggerak",
-        value: "RWD / AWD",
+        value: "RWD",
       },
       {
-        label: "Daya Premium",
+        label: "Daya",
         value: "230 kW",
       },
       {
-        label: "Torsi Premium",
+        label: "Torsi",
         value: "380 Nm",
-      },
-      {
-        label: "Daya Performance",
-        value: "390 kW",
-      },
-      {
-        label: "Torsi Performance",
-        value: "690 Nm",
       },
       {
         label: "Baterai",
         value: "82,56 kWh Blade Battery",
       },
       {
-        label: "Range Premium",
+        label: "Jarak Tempuh",
         value: "567 km NEDC",
       },
       {
-        label: "Range Performance",
-        value: "542 km NEDC",
+        label: "Akselerasi",
+        value: "0–100 km/jam 6,7 detik",
       },
       {
-        label: "0–100 Premium",
-        value: "6,7 detik",
-      },
-      {
-        label: "0–100 Performance",
-        value: "4,5 detik",
+        label: "Kapasitas",
+        value: "5 Penumpang",
       },
       {
         label: "Dimensi",
@@ -565,12 +540,8 @@ export const cars: Car[] = [
 
     variants: [
       {
-        name: "Premium",
-        price: "Rp629.000.000",
-      },
-      {
-        name: "Performance",
-        price: "Rp719.000.000",
+        name: "Extended",
+        price: "Rp879.000.000",
       },
     ],
 
@@ -593,7 +564,7 @@ export const cars: Car[] = [
     brand: "DENZA",
     name: "D9",
     category: "Luxury Electric MPV",
-    price: "Hubungi Sales",
+    price: "Rp941.500.000",
     image: "/images/cars/denza-d9.jpg",
     range: "600 km NEDC",
 
@@ -656,8 +627,8 @@ export const cars: Car[] = [
 
     variants: [
       {
-        name: "D9 Advanced",
-        price: "Hubungi Sales",
+        name: "D9 Advanced (with Home Charger)",
+        price: "Rp950.000.000",
       },
     ],
 
