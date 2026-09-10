@@ -481,9 +481,9 @@ export const cars: Car[] = [
   },
 
   {
-    slug: "sealion-extended",
+    slug: "sealion-7",
     brand: "BYD",
-    name: "SEALION Extended",
+    name: "SEALION 7",
     category: "Premium Electric SUV",
     price: "Rp879.000.000",
     image: "/images/cars/sealion-7.jpg",
@@ -493,7 +493,7 @@ export const cars: Car[] = [
       "SUV listrik premium dengan desain modern, kabin nyaman, dan teknologi elektrifikasi BYD.",
 
     longDescription:
-      "BYD SEALION Extended merupakan SUV listrik premium dengan karakter modern dan teknologi elektrifikasi BYD. Untuk sementara, model ini menggunakan sistem penggerak RWD.",
+      "BYD SEALION 7 merupakan SUV listrik premium dengan karakter modern dan teknologi elektrifikasi BYD. Untuk sementara, model ini menggunakan sistem penggerak RWD.",
 
     specs: [
       {
