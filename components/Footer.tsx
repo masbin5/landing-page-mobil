@@ -59,7 +59,12 @@ export default function Footer() {
               </a>
 
               {/* INSTAGRAM - LINK MENYUSUL */}
-              <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700">
+              <a
+                href="https://www.instagram.com/rara.bydpalmerah/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
@@ -79,9 +84,7 @@ export default function Footer() {
                     rx="5"
                     ry="5"
                   />
-
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-
                   <line
                     x1="17.5"
                     x2="17.51"
@@ -90,8 +93,8 @@ export default function Footer() {
                   />
                 </svg>
 
-                @rara.chantik
-              </div>
+                @rara.bydpalmerah
+              </a>
 
               {/* WHATSAPP */}
               <a

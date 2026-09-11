@@ -527,37 +527,42 @@ export default function HomePage() {
                     @rara.bydpalmerah
                   </a>
 
-                  <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect
-                        width="20"
-                        height="20"
-                        x="2"
-                        y="2"
-                        rx="5"
-                        ry="5"
-                      />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                      <line
-                        x1="17.5"
-                        x2="17.51"
-                        y1="6.5"
-                        y2="6.5"
-                      />
-                    </svg>
+                  <a
+  href="https://www.instagram.com/rara.bydpalmerah/"
+  target="_blank"
+  rel="noreferrer"
+  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="17"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect
+      width="20"
+      height="20"
+      x="2"
+      y="2"
+      rx="5"
+      ry="5"
+    />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line
+      x1="17.5"
+      x2="17.51"
+      y1="6.5"
+      y2="6.5"
+    />
+  </svg>
 
-                    @rara.chantik
-                  </div>
+  @rara.bydpalmerah
+</a>
                 </div>
               <p className="mt-6 max-w-xl leading-7 text-slate-500">
                 Siap membantu Anda untuk informasi
@@ -681,7 +686,16 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
+                {/* HARMONY AUTO BANNER */}
+        <section className="px-4 pt-12 sm:px-6 lg:pt-16">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px]">
+            <img
+              src="/images/promo/byd-harmony-banner.jpg"
+              alt="BYD Harmony Auto"
+              className="block h-auto w-full object-cover"
+            />
+          </div>
+        </section>
       {/* FINAL CTA */}
       <section className="px-4 pb-8 pt-12 sm:px-6">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-[#dfeeff] p-8 sm:p-12 lg:p-16">
