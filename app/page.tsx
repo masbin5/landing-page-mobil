@@ -160,7 +160,7 @@ export default function HomePage() {
               <div className="max-w-3xl pt-8 lg:pt-14">
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
                   <Sparkles className="h-4 w-4" />
-                  BYD & DENZA — Harmoni Palmerah
+                  BYD — Harmoni Palmerah
                 </div>
                   
                 <h1 className="max-w-3xl text-5xl font-black leading-[0.98] tracking-[-0.05em] text-white sm:text-6xl lg:text-[82px]">

@@ -9,6 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.rarabydpalmerah.com"),
+
   title: {
     default: "BYD Harmoni Palmerah | Sales BYD Jakarta - Rara",
     template: "%s | BYD Harmoni Palmerah",
@@ -16,6 +18,10 @@ export const metadata: Metadata = {
 
   description:
     "Konsultasi mobil BYD dan DENZA bersama Rara di BYD Harmoni Palmerah. Cek harga terbaru, promo, simulasi kredit, stok unit, spesifikasi, dan booking test drive.",
+
+  alternates: {
+    canonical: "/",
+  },
 
   keywords: [
     "BYD Harmoni Palmerah",
@@ -26,7 +32,7 @@ export const metadata: Metadata = {
     "Harga BYD Jakarta",
     "Promo BYD Jakarta",
     "BYD ATTO 1",
-    "BYD ATTO3 Advance Plus ",
+    "BYD ATTO3 Advance Plus",
     "BYD M6 EV",
     "BYD M6 DM",
     "BYD Seal",
@@ -63,6 +69,7 @@ export const metadata: Metadata = {
     title: "BYD Harmoni Palmerah | Sales BYD Jakarta - Rara",
     description:
       "Cek model, harga, promo, spesifikasi, simulasi kredit dan booking test drive BYD bersama Rara.",
+    url: "/",
     images: [
       {
         url: "/images/logo/logo-byd-harmoni.png",
@@ -91,9 +98,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body
-        className={`${poppins.className} min-h-screen antialiased`}
-      >
+      <body className={`${poppins.className} min-h-screen antialiased`}>
         {children}
       </body>
     </html>
