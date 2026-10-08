@@ -1,11 +1,13 @@
 "use client";
 
 import {
+  ArrowLeft,
   ArrowRight,
   BadgeCheck,
   Banknote,
   BatteryCharging,
   CheckCircle2,
+  ChevronLeft,
   ChevronRight,
   ImageIcon,
   MessageCircle,
@@ -54,6 +56,11 @@ const features = [
     description:
       "Booking, test drive, pengajuan kredit, pengecekan dokumen, dan delivery dibantu dalam satu layanan.",
   },
+];
+
+const promoImages = [
+  "/images/promo/promo-m6-dmi-oktober.png",
+  "/images/promo/promo-atto1-oktober.png",
 ];
 
 function getImageCandidates(src: string) {
@@ -126,6 +133,71 @@ function TestimonialImage({
     </div>
   );
 }
+
+function PromoSlider() {
+  const [activePromo, setActivePromo] = useState(0);
+
+  const previousPromo = () => {
+    setActivePromo((current) =>
+      current === 0 ? promoImages.length - 1 : current - 1
+    );
+  };
+
+  const nextPromo = () => {
+    setActivePromo((current) =>
+      current === promoImages.length - 1 ? 0 : current + 1
+    );
+  };
+
+  return (
+    <div className="relative min-h-[620px] overflow-hidden rounded-[32px] bg-[#eef4fb] sm:min-h-[700px] lg:min-h-[760px]">
+      <img
+  src={promoImages[activePromo]}
+  alt={`Promo BYD Harmoni Palmerah ${activePromo + 1}`}
+  className="absolute inset-0 h-full w-full object-contain transition-all duration-500"
+/>
+
+      {promoImages.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={previousPromo}
+            aria-label="Promo sebelumnya"
+            className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#0d3c78] shadow-lg backdrop-blur transition hover:bg-white"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          <button
+            type="button"
+            onClick={nextPromo}
+            aria-label="Promo berikutnya"
+            className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#0d3c78] shadow-lg backdrop-blur transition hover:bg-white"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
+          <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center gap-2">
+            {promoImages.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActivePromo(index)}
+                aria-label={`Lihat promo ${index + 1}`}
+                className={`h-2.5 rounded-full transition-all ${
+                  activePromo === index
+                    ? "w-8 bg-white"
+                    : "w-2.5 bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 const promoMarqueeItems = [
   "Nikmati program promo eksklusif, pilihan paket kredit fleksibel, serta penawaran spesial untuk pembelian mobil listrik BYD bulan ini.",
   "Tanyakan harga terbaru, simulasi kredit, dan booking test drive langsung bersama Rara.",
@@ -136,16 +208,17 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#f7f9fc] text-slate-950">
       <Navbar />
-      
+
       {/* HERO */}
       <section className="px-4 pb-12 pt-28 sm:px-6 lg:pb-20 lg:pt-32">
         <div className="mx-auto max-w-7xl">
           {/* BYD HARMONY AUTO LOGO */}
-<img
-  src="/images/hero/harmony-auto.png"
-  alt="BYD Harmony Auto"
-  className="mb-8 h-auto w-[260px] object-contain sm:w-[320px] lg:w-[380px]"
-/>
+          <img
+            src="/images/hero/harmony-auto.png"
+            alt="BYD Harmony Auto"
+            className="mb-8 h-auto w-[260px] object-contain sm:w-[320px] lg:w-[380px]"
+          />
+
           <div className="relative min-h-[680px] overflow-hidden rounded-[34px] bg-[#0d3c78]">
             <img
               src="/images/hero/hero-byd.jpg"
@@ -162,7 +235,7 @@ export default function HomePage() {
                   <Sparkles className="h-4 w-4" />
                   BYD — Harmoni Palmerah
                 </div>
-                  
+
                 <h1 className="max-w-3xl text-5xl font-black leading-[0.98] tracking-[-0.05em] text-white sm:text-6xl lg:text-[82px]">
                   One lineup.
 
@@ -172,12 +245,9 @@ export default function HomePage() {
                 </h1>
 
                 <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 sm:text-lg">
-                  Temukan kendaraan BYD dan DENZA
-                  yang sesuai kebutuhan Anda. Cek
-                  model, harga, promo, simulasi
-                  kredit, test drive, dan konsultasi
-                  langsung bersama Rara dari BYD
-                  Harmoni Palmerah.
+                  Temukan kendaraan BYD dan DENZA yang sesuai kebutuhan Anda.
+                  Cek model, harga, promo, simulasi kredit, test drive, dan
+                  konsultasi langsung bersama Rara dari BYD Harmoni Palmerah.
                 </p>
 
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -226,22 +296,24 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-<section className="overflow-hidden bg-white py-4">
-  <div className="marquee-wrapper border-y border-slate-200 bg-white">
-    <div className="marquee-track py-3">
-      {[...promoMarqueeItems, ...promoMarqueeItems].map(
-        (text, index) => (
-          <div
-            key={index}
-            className="marquee-item text-sm font-medium text-slate-700"
-          >
-            {text}
+
+      <section className="overflow-hidden bg-white py-4">
+        <div className="marquee-wrapper border-y border-slate-200 bg-white">
+          <div className="marquee-track py-3">
+            {[...promoMarqueeItems, ...promoMarqueeItems].map(
+              (text, index) => (
+                <div
+                  key={index}
+                  className="marquee-item text-sm font-medium text-slate-700"
+                >
+                  {text}
+                </div>
+              )
+            )}
           </div>
-        )
-      )}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
+
       {/* LINEUP */}
       <section
         id="lineup"
@@ -255,15 +327,12 @@ export default function HomePage() {
               </p>
 
               <h2 className="max-w-3xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-                Pilih BYD yang paling cocok untuk
-                gaya hidup Anda.
+                Pilih BYD yang paling cocok untuk gaya hidup Anda.
               </h2>
 
               <p className="mt-4 max-w-2xl leading-7 text-slate-500">
-                Lihat pilihan model BYD dan DENZA,
-                harga, spesifikasi, varian, serta
-                fitur unggulan masing-masing
-                kendaraan.
+                Lihat pilihan model BYD dan DENZA, harga, spesifikasi, varian,
+                serta fitur unggulan masing-masing kendaraan.
               </p>
             </div>
 
@@ -295,13 +364,10 @@ export default function HomePage() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#4777a9]">
-                        {car.brand} ·{" "}
-                        {car.category}
+                        {car.brand} · {car.category}
                       </p>
 
-                      <a
-                        href={`/model/${car.slug}`}
-                      >
+                      <a href={`/model/${car.slug}`}>
                         <h3 className="mt-1 text-2xl font-black tracking-tight transition hover:text-[#0d3c78]">
                           {car.name}
                         </h3>
@@ -357,15 +423,13 @@ export default function HomePage() {
               </p>
 
               <h2 className="text-4xl font-black tracking-[-0.04em]">
-                Lebih mudah dari konsultasi sampai
-                delivery.
+                Lebih mudah dari konsultasi sampai delivery.
               </h2>
 
               <p className="mt-5 max-w-md leading-7 text-slate-500">
-                Konsultasikan kebutuhan kendaraan
-                Anda bersama Rara dan dapatkan
-                pendampingan mulai dari pemilihan
-                model hingga serah terima unit.
+                Konsultasikan kebutuhan kendaraan Anda bersama Rara dan
+                dapatkan pendampingan mulai dari pemilihan model hingga serah
+                terima unit.
               </p>
             </div>
 
@@ -412,15 +476,13 @@ export default function HomePage() {
             </div>
 
             <h2 className="mt-6 max-w-xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-              Cek promo dan simulasi kredit
-              terbaru.
+              Cek promo dan simulasi kredit terbaru.
             </h2>
 
             <p className="mt-5 max-w-xl leading-7 text-white/65">
-              Konsultasikan tipe kendaraan,
-              rencana DP, tenor, dan budget bulanan
-              bersama Rara. Dapatkan simulasi
-              pembelian yang sesuai kebutuhan Anda.
+              Konsultasikan tipe kendaraan, rencana DP, tenor, dan budget
+              bulanan bersama Rara. Dapatkan simulasi pembelian yang sesuai
+              kebutuhan Anda.
             </p>
 
             <div className="mt-8 space-y-3">
@@ -452,12 +514,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <MediaImage
-            src="/images/promo/promo-lineup.jpg"
-            alt="Promo BYD Harmoni Palmerah"
-            fallbackLabel="Poster promo — promo-lineup.jpg"
-            className="min-h-[520px] rounded-[32px]"
-          />
+          <PromoSlider />
         </div>
       </section>
 
@@ -480,12 +537,11 @@ export default function HomePage() {
               </p>
 
               <p className="mt-1 text-sm font-medium text-white/70">
-                Sales Consultant · BYD Harmoni
-                Palmerah
+                Sales Consultant · BYD Harmoni Palmerah
               </p>
             </div>
           </div>
-              
+
           <div className="flex items-center p-8 sm:p-10 lg:p-14">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-[#31689f]">
@@ -502,75 +558,73 @@ export default function HomePage() {
                 </p>
 
                 <p className="mt-1 text-sm font-semibold text-slate-400">
-                  Sales Consultant · BYD Harmoni
-                  Palmerah
+                  Sales Consultant · BYD Harmoni Palmerah
                 </p>
               </div>
-                {/* SOCIAL MEDIA RARA */}
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <a
-                    href="https://www.tiktok.com/@rara.bydpalmerah?_r=1&_t=ZS-99Dx3SJI3NI"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+
+              {/* SOCIAL MEDIA RARA */}
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href="https://www.tiktok.com/@rarabyd.palmerah?_r=1&_t=ZS-9AN6PBy8Dpc"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+                >
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-3.77V2h-3.486v13.672a2.896 2.896 0 1 1-2-2.756V9.358a6.37 6.37 0 1 0 5.486 6.314V8.738a8.256 8.256 0 0 0 4.84 1.55V6.817a4.85 4.85 0 0 1-1.07-.131Z" />
-                    </svg>
+                    <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-3.77V2h-3.486v13.672a2.896 2.896 0 1 1-2-2.756V9.358a6.37 6.37 0 1 0 5.486 6.314V8.738a8.256 8.256 0 0 0 4.84 1.55V6.817a4.85 4.85 0 0 1-1.07-.131Z" />
+                  </svg>
 
-                    @rara.bydpalmerah
-                  </a>
+                  @rarabyd.palmerah
+                </a>
 
-                  <a
-  href="https://www.instagram.com/rara.bydpalmerah/"
-  target="_blank"
-  rel="noreferrer"
-  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="17"
-    height="17"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect
-      width="20"
-      height="20"
-      x="2"
-      y="2"
-      rx="5"
-      ry="5"
-    />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line
-      x1="17.5"
-      x2="17.51"
-      y1="6.5"
-      y2="6.5"
-    />
-  </svg>
+                <a
+                  href="https://www.instagram.com/rarabyd.palmerah?stkn=MWQzeXl2ZGZxazQxYQ=="
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect
+                      width="20"
+                      height="20"
+                      x="2"
+                      y="2"
+                      rx="5"
+                      ry="5"
+                    />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line
+                      x1="17.5"
+                      x2="17.51"
+                      y1="6.5"
+                      y2="6.5"
+                    />
+                  </svg>
 
-  @rara.bydpalmerah
-</a>
-                </div>
+                  @rarabyd.palmerah
+                </a>
+              </div>
+
               <p className="mt-6 max-w-xl leading-7 text-slate-500">
-                Siap membantu Anda untuk informasi
-                model BYD dan DENZA, harga terbaru,
-                promo, simulasi kredit,
-                ketersediaan unit, test drive,
-                hingga proses pemesanan dan serah
-                terima kendaraan.
+                Siap membantu Anda untuk informasi model BYD dan DENZA, harga
+                terbaru, promo, simulasi kredit, ketersediaan unit, test drive,
+                hingga proses pemesanan dan serah terima kendaraan.
               </p>
 
               <div className="mt-8 space-y-3">
@@ -626,8 +680,7 @@ export default function HomePage() {
               </p>
 
               <h2 className="mt-3 max-w-2xl text-4xl font-black tracking-[-0.04em] sm:text-5xl">
-                Apa kata mereka setelah memilih
-                BYD.
+                Apa kata mereka setelah memilih BYD.
               </h2>
             </div>
 
@@ -675,9 +728,7 @@ export default function HomePage() {
                       </p>
 
                       <p className="mt-1 text-xs text-slate-400">
-                        Customer{" "}
-                        {item.vehicle} dari{" "}
-                        {item.area}
+                        Customer {item.vehicle} dari {item.area}
                       </p>
                     </div>
                   </div>
@@ -686,16 +737,18 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-                {/* HARMONY AUTO BANNER */}
-        <section className="px-4 pt-12 sm:px-6 lg:pt-16">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px]">
-            <img
-              src="/images/promo/byd-harmony-banner.jpg"
-              alt="BYD Harmony Auto"
-              className="block h-auto w-full object-cover"
-            />
-          </div>
-        </section>
+
+      {/* HARMONY AUTO BANNER */}
+      <section className="px-4 pt-12 sm:px-6 lg:pt-16">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px]">
+          <img
+            src="/images/promo/byd-harmony-banner.jpg"
+            alt="BYD Harmony Auto"
+            className="block h-auto w-full object-cover"
+          />
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="px-4 pb-8 pt-12 sm:px-6">
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-[#dfeeff] p-8 sm:p-12 lg:p-16">
@@ -706,17 +759,14 @@ export default function HomePage() {
               </p>
 
               <h2 className="mt-4 max-w-3xl text-4xl font-black tracking-[-0.045em] sm:text-5xl lg:text-6xl">
-                Sudah punya BYD incaran? Tanya Mba
-                Rara hari ini.
+                Sudah punya BYD incaran? Tanya Mba Rara hari ini.
               </h2>
             </div>
 
             <div className="lg:text-right">
               <p className="mb-5 text-sm font-semibold leading-6 text-slate-600 lg:ml-auto lg:max-w-sm">
-                Kirim tipe mobil, budget, dan
-                rencana DP. Rara akan bantu cek
-                stok, promo, dan buatkan simulasi
-                pembelian.
+                Kirim tipe mobil, budget, dan rencana DP. Rara akan bantu cek
+                stok, promo, dan buatkan simulasi pembelian.
               </p>
 
               <a

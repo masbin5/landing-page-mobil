@@ -4,7 +4,10 @@ const whatsapp =
   "https://wa.me/6281934703372?text=Halo%20Rara%2C%20saya%20ingin%20konsultasi%20mobil%20BYD";
 
 const tiktok =
-  "https://www.tiktok.com/@rara.bydpalmerah?_r=1&_t=ZS-99Dx3SJI3NI";
+  "https://www.tiktok.com/@rarabyd.palmerah?_r=1&_t=ZS-9AN6PBy8Dpc";
+
+const instagram =
+  "https://www.instagram.com/rarabyd.palmerah?stkn=MWQzeXl2ZGZxazQxYQ==";
 
 export default function Footer() {
   return (
@@ -41,7 +44,7 @@ export default function Footer() {
               <a
                 href={tiktok}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
                 aria-label="TikTok Rara BYD Palmerah"
               >
@@ -55,15 +58,16 @@ export default function Footer() {
                   <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-3.77V2h-3.486v13.672a2.896 2.896 0 1 1-2-2.756V9.358a6.37 6.37 0 1 0 5.486 6.314V8.738a8.256 8.256 0 0 0 4.84 1.55V6.817a4.85 4.85 0 0 1-1.07-.131Z" />
                 </svg>
 
-                @rara.bydpalmerah
+                @rarabyd.palmerah
               </a>
 
-              {/* INSTAGRAM - LINK MENYUSUL */}
+              {/* INSTAGRAM */}
               <a
-                href="https://www.instagram.com/rara.bydpalmerah/"
+                href={instagram}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 transition hover:border-[#0d3c78] hover:text-[#0d3c78]"
+                aria-label="Instagram Rara BYD Palmerah"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,14 +97,14 @@ export default function Footer() {
                   />
                 </svg>
 
-                @rara.bydpalmerah
+                @rarabyd.palmerah
               </a>
 
               {/* WHATSAPP */}
               <a
                 href={whatsapp}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0d3c78] text-white transition hover:bg-[#092f62]"
                 aria-label="WhatsApp Rara"
               >
